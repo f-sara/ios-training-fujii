@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8012B26ADBB0001A153 /* AppDelegate.swift */; };
+		FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */; };
+		FD62F8062B26ADBB0001A153 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8052B26ADBB0001A153 /* ViewController.swift */; };
+		FD62F8092B26ADBB0001A153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62F8072B26ADBB0001A153 /* Main.storyboard */; };
+		FD62F80B2B26ADBB0001A153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD62F80A2B26ADBB0001A153 /* Assets.xcassets */; };
+		FD62F80E2B26ADBB0001A153 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */; };
+		FD62F8192B26ADBC0001A153 /* ios_training_fujiiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */; };
+		FD62F8232B26ADBC0001A153 /* ios_training_fujiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8222B26ADBC0001A153 /* ios_training_fujiiUITests.swift */; };
+		FD62F8252B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8242B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD62F8152B26ADBC0001A153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD62F7F62B26ADBB0001A153 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD62F7FD2B26ADBB0001A153;
+			remoteInfo = "ios-training-fujii";
+		};
+		FD62F81F2B26ADBC0001A153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD62F7F62B26ADBB0001A153 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD62F7FD2B26ADBB0001A153;
+			remoteInfo = "ios-training-fujii";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-training-fujii.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD62F8012B26ADBB0001A153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FD62F8052B26ADBB0001A153 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD62F8082B26ADBB0001A153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD62F80A2B26ADBB0001A153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD62F80D2B26ADBB0001A153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD62F80F2B26ADBB0001A153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD62F8142B26ADBC0001A153 /* ios-training-fujiiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-training-fujiiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_training_fujiiTests.swift; sourceTree = "<group>"; };
+		FD62F81E2B26ADBC0001A153 /* ios-training-fujiiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-training-fujiiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD62F8222B26ADBC0001A153 /* ios_training_fujiiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_training_fujiiUITests.swift; sourceTree = "<group>"; };
+		FD62F8242B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_training_fujiiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD62F7FB2B26ADBB0001A153 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62F8112B26ADBC0001A153 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62F81B2B26ADBC0001A153 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD62F7F52B26ADBB0001A153 = {
+			isa = PBXGroup;
+			children = (
+				FD62F8002B26ADBB0001A153 /* ios-training-fujii */,
+				FD62F8172B26ADBC0001A153 /* ios-training-fujiiTests */,
+				FD62F8212B26ADBC0001A153 /* ios-training-fujiiUITests */,
+				FD62F7FF2B26ADBB0001A153 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD62F7FF2B26ADBB0001A153 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */,
+				FD62F8142B26ADBC0001A153 /* ios-training-fujiiTests.xctest */,
+				FD62F81E2B26ADBC0001A153 /* ios-training-fujiiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD62F8002B26ADBB0001A153 /* ios-training-fujii */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F8012B26ADBB0001A153 /* AppDelegate.swift */,
+				FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */,
+				FD62F8052B26ADBB0001A153 /* ViewController.swift */,
+				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
+				FD62F80A2B26ADBB0001A153 /* Assets.xcassets */,
+				FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */,
+				FD62F80F2B26ADBB0001A153 /* Info.plist */,
+			);
+			path = "ios-training-fujii";
+			sourceTree = "<group>";
+		};
+		FD62F8172B26ADBC0001A153 /* ios-training-fujiiTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */,
+			);
+			path = "ios-training-fujiiTests";
+			sourceTree = "<group>";
+		};
+		FD62F8212B26ADBC0001A153 /* ios-training-fujiiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F8222B26ADBC0001A153 /* ios_training_fujiiUITests.swift */,
+				FD62F8242B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift */,
+			);
+			path = "ios-training-fujiiUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD62F7FD2B26ADBB0001A153 /* ios-training-fujii */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD62F8282B26ADBC0001A153 /* Build configuration list for PBXNativeTarget "ios-training-fujii" */;
+			buildPhases = (
+				FD62F7FA2B26ADBB0001A153 /* Sources */,
+				FD62F7FB2B26ADBB0001A153 /* Frameworks */,
+				FD62F7FC2B26ADBB0001A153 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-training-fujii";
+			productName = "ios-training-fujii";
+			productReference = FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD62F8132B26ADBC0001A153 /* ios-training-fujiiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD62F82B2B26ADBC0001A153 /* Build configuration list for PBXNativeTarget "ios-training-fujiiTests" */;
+			buildPhases = (
+				FD62F8102B26ADBC0001A153 /* Sources */,
+				FD62F8112B26ADBC0001A153 /* Frameworks */,
+				FD62F8122B26ADBC0001A153 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD62F8162B26ADBC0001A153 /* PBXTargetDependency */,
+			);
+			name = "ios-training-fujiiTests";
+			productName = "ios-training-fujiiTests";
+			productReference = FD62F8142B26ADBC0001A153 /* ios-training-fujiiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FD62F81D2B26ADBC0001A153 /* ios-training-fujiiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD62F82E2B26ADBC0001A153 /* Build configuration list for PBXNativeTarget "ios-training-fujiiUITests" */;
+			buildPhases = (
+				FD62F81A2B26ADBC0001A153 /* Sources */,
+				FD62F81B2B26ADBC0001A153 /* Frameworks */,
+				FD62F81C2B26ADBC0001A153 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD62F8202B26ADBC0001A153 /* PBXTargetDependency */,
+			);
+			name = "ios-training-fujiiUITests";
+			productName = "ios-training-fujiiUITests";
+			productReference = FD62F81E2B26ADBC0001A153 /* ios-training-fujiiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD62F7F62B26ADBB0001A153 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					FD62F7FD2B26ADBB0001A153 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					FD62F8132B26ADBC0001A153 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = FD62F7FD2B26ADBB0001A153;
+					};
+					FD62F81D2B26ADBC0001A153 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = FD62F7FD2B26ADBB0001A153;
+					};
+				};
+			};
+			buildConfigurationList = FD62F7F92B26ADBB0001A153 /* Build configuration list for PBXProject "ios-training-fujii" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD62F7F52B26ADBB0001A153;
+			productRefGroup = FD62F7FF2B26ADBB0001A153 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD62F7FD2B26ADBB0001A153 /* ios-training-fujii */,
+				FD62F8132B26ADBC0001A153 /* ios-training-fujiiTests */,
+				FD62F81D2B26ADBC0001A153 /* ios-training-fujiiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD62F7FC2B26ADBB0001A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD62F80E2B26ADBB0001A153 /* LaunchScreen.storyboard in Resources */,
+				FD62F80B2B26ADBB0001A153 /* Assets.xcassets in Resources */,
+				FD62F8092B26ADBB0001A153 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62F8122B26ADBC0001A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62F81C2B26ADBC0001A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD62F7FA2B26ADBB0001A153 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD62F8062B26ADBB0001A153 /* ViewController.swift in Sources */,
+				FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */,
+				FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62F8102B26ADBC0001A153 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD62F8192B26ADBC0001A153 /* ios_training_fujiiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD62F81A2B26ADBC0001A153 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD62F8252B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift in Sources */,
+				FD62F8232B26ADBC0001A153 /* ios_training_fujiiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD62F8162B26ADBC0001A153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD62F7FD2B26ADBB0001A153 /* ios-training-fujii */;
+			targetProxy = FD62F8152B26ADBC0001A153 /* PBXContainerItemProxy */;
+		};
+		FD62F8202B26ADBC0001A153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD62F7FD2B26ADBB0001A153 /* ios-training-fujii */;
+			targetProxy = FD62F81F2B26ADBC0001A153 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FD62F8072B26ADBB0001A153 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD62F8082B26ADBB0001A153 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD62F80D2B26ADBB0001A153 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD62F8262B26ADBC0001A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FD62F8272B26ADBC0001A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD62F8292B26ADBC0001A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87U3U3XXR2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-training-fujii/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fujii.ios-training-fujii";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD62F82A2B26ADBC0001A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87U3U3XXR2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-training-fujii/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fujii.ios-training-fujii";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FD62F82C2B26ADBC0001A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87U3U3XXR2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fujii.ios-training-fujiiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-training-fujii.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-training-fujii";
+			};
+			name = Debug;
+		};
+		FD62F82D2B26ADBC0001A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87U3U3XXR2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fujii.ios-training-fujiiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-training-fujii.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-training-fujii";
+			};
+			name = Release;
+		};
+		FD62F82F2B26ADBC0001A153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87U3U3XXR2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fujii.ios-training-fujiiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ios-training-fujii";
+			};
+			name = Debug;
+		};
+		FD62F8302B26ADBC0001A153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87U3U3XXR2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fujii.ios-training-fujiiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ios-training-fujii";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD62F7F92B26ADBB0001A153 /* Build configuration list for PBXProject "ios-training-fujii" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD62F8262B26ADBC0001A153 /* Debug */,
+				FD62F8272B26ADBC0001A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD62F8282B26ADBC0001A153 /* Build configuration list for PBXNativeTarget "ios-training-fujii" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD62F8292B26ADBC0001A153 /* Debug */,
+				FD62F82A2B26ADBC0001A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD62F82B2B26ADBC0001A153 /* Build configuration list for PBXNativeTarget "ios-training-fujiiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD62F82C2B26ADBC0001A153 /* Debug */,
+				FD62F82D2B26ADBC0001A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD62F82E2B26ADBC0001A153 /* Build configuration list for PBXNativeTarget "ios-training-fujiiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD62F82F2B26ADBC0001A153 /* Debug */,
+				FD62F8302B26ADBC0001A153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD62F7F62B26ADBB0001A153 /* Project object */;
+}
