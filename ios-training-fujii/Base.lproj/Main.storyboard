@@ -48,16 +48,16 @@
                                     <constraint firstItem="RRn-70-BZv" firstAttribute="width" secondItem="Hf4-Wl-i45" secondAttribute="width" multiplier="0.5" id="S55-ZC-7bV"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Y5-0L-URI">
-                                <rect key="frame" x="98" y="629" width="152.66666666666666" height="34.333333333333371"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Y5-0L-URI">
+                                <rect key="frame" x="98.333333333333329" y="614.66666666666663" width="196.33333333333337" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-dY-qha">
-                                        <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Close"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-VG-CBM">
-                                        <rect key="frame" x="76.333333333333343" y="0.0" width="76.333333333333343" height="34.333333333333336"/>
+                                        <rect key="frame" x="98.333333333333314" y="0.0" width="98" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Reload"/>
                                     </button>
@@ -68,8 +68,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0QY-yB-jEE"/>
+                            <constraint firstItem="3Y5-0L-URI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3iM-Lo-1hz"/>
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5OX-Oh-cPS"/>
+                            <constraint firstItem="3Y5-0L-URI" firstAttribute="top" secondItem="UAK-ig-2vj" secondAttribute="bottom" constant="80" id="78j-5w-YAT"/>
                             <constraint firstItem="Hf4-Wl-i45" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="F2x-4L-Tn8"/>
+                            <constraint firstItem="hRW-dY-qha" firstAttribute="centerX" secondItem="RRn-70-BZv" secondAttribute="centerX" id="FDK-sC-j23"/>
+                            <constraint firstItem="3Y5-0L-URI" firstAttribute="width" secondItem="Hf4-Wl-i45" secondAttribute="width" id="JXk-wG-ww9"/>
+                            <constraint firstItem="Ggs-VG-CBM" firstAttribute="centerX" secondItem="pOP-63-AIu" secondAttribute="centerX" id="U3a-PR-yMT"/>
                         </constraints>
                     </view>
                 </viewController>
