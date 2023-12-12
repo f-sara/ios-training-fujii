@@ -32,6 +32,18 @@ class ViewController: UIViewController {
         
         weatherImage = UIImage(named: weatherImageString)
         weatherImageView.image = weatherImage
+        
+        switch weatherImageString {
+        case "sunny":
+            weatherImageView.tintColor = .red
+        case "cloudy":
+            weatherImageView.tintColor = .gray
+        case "rainy":
+            weatherImageView.tintColor = .blue
+        default:
+            return
+        }
+        
         print(weatherImageString)
         
     }
