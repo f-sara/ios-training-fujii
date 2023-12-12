@@ -42,7 +42,10 @@ class ViewController: UIViewController {
             print(weatherImageString)
             
         } catch {
-            print("エラー\(error)")
+            let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "閉じる", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            print(error)
         }
     }
 
