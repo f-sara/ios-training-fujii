@@ -6,12 +6,34 @@
 //
 
 import UIKit
+import YumemiWeather
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var weatherImageView: UIImageView!
+    var weatherImage: UIImage!
+    
+    private var weatherImageString: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        fetchWeather()
+    }
+    
+    @IBAction func weatherReloadButton() {
+
+        fetchWeather()
+    }
+    
+    func fetchWeather() -> Void {
+        weatherImageString = YumemiWeather.fetchWeatherCondition()
+        guard let weatherImageString = weatherImageString else { return }
+        
+        weatherImage = UIImage(named: weatherImageString)
+        weatherImageView.image = weatherImage
+        print(weatherImageString)
+        
     }
 
 
