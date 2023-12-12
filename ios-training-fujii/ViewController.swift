@@ -24,23 +24,26 @@ class ViewController: UIViewController {
     }
     
     func fetchWeather() -> Void {
-        let weatherImageString: String = YumemiWeather.fetchWeatherCondition()
-        let weatherImage = UIImage(named: weatherImageString)
-        weatherImageView.image = weatherImage
-        
-        switch weatherImageString {
-        case "sunny":
-            weatherImageView.tintColor = .red
-        case "cloudy":
-            weatherImageView.tintColor = .gray
-        case "rainy":
-            weatherImageView.tintColor = .blue
-        default:
-            return
+        do {
+            let weatherImageString = try YumemiWeather.fetchWeatherCondition(at: "tokyo")
+            let weatherImage = UIImage(named: weatherImageString)
+            weatherImageView.image = weatherImage
+            
+            switch weatherImageString {
+            case "sunny":
+                weatherImageView.tintColor = .red
+            case "cloudy":
+                weatherImageView.tintColor = .gray
+            case "rainy":
+                weatherImageView.tintColor = .blue
+            default:
+                return
+            }
+            print(weatherImageString)
+            
+        } catch {
+            print("エラー\(error)")
         }
-        
-        print(weatherImageString)
-        
     }
 
 
