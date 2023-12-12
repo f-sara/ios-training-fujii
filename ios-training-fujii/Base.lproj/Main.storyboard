@@ -44,7 +44,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="3Y5-0L-URI">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Y5-0L-URI">
                                 <rect key="frame" x="98.333333333333329" y="614.33333333333337" width="196.33333333333337" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-dY-qha">
@@ -66,9 +66,9 @@
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0QY-yB-jEE"/>
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5OX-Oh-cPS"/>
                             <constraint firstItem="3Y5-0L-URI" firstAttribute="top" secondItem="UAK-ig-2vj" secondAttribute="bottom" constant="80" id="78j-5w-YAT"/>
-                            <constraint firstItem="hRW-dY-qha" firstAttribute="centerX" secondItem="RRn-70-BZv" secondAttribute="centerX" id="FDK-sC-j23"/>
-                            <constraint firstItem="Ggs-VG-CBM" firstAttribute="centerX" secondItem="pOP-63-AIu" secondAttribute="centerX" id="U3a-PR-yMT"/>
+                            <constraint firstItem="3Y5-0L-URI" firstAttribute="width" secondItem="UAK-ig-2vj" secondAttribute="width" id="YCP-dP-n5k"/>
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="nOO-ZP-p7k"/>
+                            <constraint firstItem="3Y5-0L-URI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vDH-A2-iqZ"/>
                         </constraints>
                     </view>
                 </viewController>
