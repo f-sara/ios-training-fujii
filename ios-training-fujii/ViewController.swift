@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     func fetchWeather() -> Void {
         weatherImageString = YumemiWeather.fetchWeatherCondition()
-        guard let weatherImageString = weatherImageString else { return }
+        guard let weatherImageString else { return }
         
         weatherImage = UIImage(named: weatherImageString)
         weatherImageView.image = weatherImage
