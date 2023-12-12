@@ -17,6 +17,7 @@
 		FD62F8232B26ADBC0001A153 /* ios_training_fujiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8222B26ADBC0001A153 /* ios_training_fujiiUITests.swift */; };
 		FD62F8252B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8242B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift */; };
 		FD62F8362B26E9930001A153 /* YumemiWeather in Frameworks */ = {isa = PBXBuildFile; productRef = FD62F8352B26E9930001A153 /* YumemiWeather */; };
+		FDC811492B28622100B2BD8B /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC811482B28622100B2BD8B /* WeatherDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		FD62F81E2B26ADBC0001A153 /* ios-training-fujiiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-training-fujiiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD62F8222B26ADBC0001A153 /* ios_training_fujiiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_training_fujiiUITests.swift; sourceTree = "<group>"; };
 		FD62F8242B26ADBC0001A153 /* ios_training_fujiiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_training_fujiiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDC811482B28622100B2BD8B /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				FD62F8012B26ADBB0001A153 /* AppDelegate.swift */,
 				FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */,
 				FD62F8052B26ADBB0001A153 /* ViewController.swift */,
+				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
 				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
 				FD62F80A2B26ADBB0001A153 /* Assets.xcassets */,
 				FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC811492B28622100B2BD8B /* WeatherDataModel.swift in Sources */,
 				FD62F8062B26ADBB0001A153 /* ViewController.swift in Sources */,
 				FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */,
 				FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */,
