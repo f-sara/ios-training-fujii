@@ -11,8 +11,6 @@ import YumemiWeather
 class ViewController: UIViewController {
 
     @IBOutlet weak var weatherImageView: UIImageView!
-    
-    private var weatherImageString: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +24,9 @@ class ViewController: UIViewController {
     }
     
     func fetchWeather() -> Void {
-        var weatherImage: UIImage!
-        weatherImageString = YumemiWeather.fetchWeatherCondition()
+        let weatherImageString: String? = YumemiWeather.fetchWeatherCondition()
         guard let weatherImageString else { return }
-        
-        weatherImage = UIImage(named: weatherImageString)
+        let weatherImage = UIImage(named: weatherImageString)
         weatherImageView.image = weatherImage
         
         switch weatherImageString {
