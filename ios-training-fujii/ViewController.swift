@@ -15,17 +15,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchWeather()
+        fetchWeather(area: "tokyo")
     }
     
     @IBAction func weatherReloadButton() {
 
-        fetchWeather()
+        fetchWeather(area: "tokyo")
     }
     
-    func fetchWeather() -> Void {
+    func fetchWeather(area: String) -> Void {
         do {
-            let weatherImageString = try YumemiWeather.fetchWeatherCondition(at: "tokyo")
+            let weatherImageString = try YumemiWeather.fetchWeatherCondition(at: area)
             let weatherImage = UIImage(named: weatherImageString)
             weatherImageView.image = weatherImage
             
