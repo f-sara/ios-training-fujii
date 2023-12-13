@@ -19,29 +19,18 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchWeatherAPI(area: "tokyo")
+        reloadWeather(area: "tokyo")
     }
     
     @IBAction func weatherReloadButton() {
         
-        fetchWeatherAPI(area: "tokyo")
+        reloadWeather(area: "tokyo")
     }
     
-    func fetchWeatherAPI(area: String) -> Void {
+    func reloadWeather(area: String) -> Void {
         do {
-            let date = getDate()
-            let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
-            let encoder = JSONEncoder()
-            encoder.dateEncodingStrategy = .iso8601
-            let data = try encoder.encode(weatherAPIRequest)
-            let stringRequest = String(data: data, encoding: .utf8)!
-            let jsonString = try YumemiWeather.fetchWeather(stringRequest)
-            let jsonData = jsonString.data(using: .utf8)!
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-            let weatherData = try jsonDecoder.decode(WeatherDataModel.self, from: jsonData)
+            let weatherData = try fetchWeatherAPI(area: area)
             setWeatherUI(weatherData: weatherData)
-            
         } catch {
             switch error {
             case is EncodingError:
@@ -57,6 +46,29 @@ final class ViewController: UIViewController {
         }
     }
     
+    private func encodeAPIRequest(area: String) throws -> String {
+        let date = getDate()
+        let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        let data = try encoder.encode(weatherAPIRequest)
+        return String(data: data, encoding: .utf8)!
+    }
+    
+    private func decodeAPIResponse(responseData: String) throws -> WeatherDataModel {
+        let jsonData = responseData.data(using: .utf8)!
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        let weatherData = try jsonDecoder.decode(WeatherDataModel.self, from: jsonData)
+        return weatherData
+    }
+    
+    private func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
+        let requestAPIData = try encodeAPIRequest(area: area)
+        let responseAPIData = try YumemiWeather.fetchWeather(requestAPIData)
+        let weatherData = try decodeAPIResponse(responseData: responseAPIData)
+        return weatherData
+    }
     
     private func getDate() -> Date {
         let dateFormatter = ISO8601DateFormatter()
