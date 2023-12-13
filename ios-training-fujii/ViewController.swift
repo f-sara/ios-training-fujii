@@ -8,7 +8,7 @@
 import UIKit
 import YumemiWeather
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var weatherImageView: UIImageView!
 
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         fetchWeather(area: "tokyo")
     }
     
-    func fetchWeather(area: String) -> Void {
+    private func fetchWeather(area: String) -> Void {
         do {
             let weatherImageString = try YumemiWeather.fetchWeatherCondition(at: area)
             let weatherImage = UIImage(named: weatherImageString)
