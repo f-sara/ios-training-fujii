@@ -42,13 +42,17 @@ final class ViewController: UIViewController {
             setWeatherUI(weatherData: weatherData)
             
         } catch {
-            let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "閉じる", style: .default))
-            self.present(alert, animated: true, completion: nil)
+            showAlert(error: error)
         }
     }
     
-    func setWeatherUI(weatherData: WeatherDataModel) {
+    private func showAlert(error: Error) {
+        let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "閉じる", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func setWeatherUI(weatherData: WeatherDataModel) {
         let weatherImage = UIImage(named: weatherData.weather_condition)
         let mimTemperature = String(weatherData.min_temperature)
         let maxTemperature = String(weatherData.max_temperature)
