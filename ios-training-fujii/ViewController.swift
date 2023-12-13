@@ -15,30 +15,27 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchWeather(area: "tokyo")
+        fetchWeatherAPI(area: "tokyo")
     }
     
-    @IBAction private func weatherReloadButton() {
-
-        fetchWeather(area: "tokyo")
+    @IBAction func weatherReloadButton() {
+        
+        fetchWeatherAPI(area: "tokyo")
     }
     
-    private func fetchWeather(area: String) -> Void {
+    func fetchWeatherAPI(area: String) -> Void {
         do {
-            let weatherImageString = try YumemiWeather.fetchWeatherCondition(at: area)
-            let weatherImage = UIImage(named: weatherImageString)
-            weatherImageView.image = weatherImage
-            
-            switch weatherImageString {
-            case "sunny":
-                weatherImageView.tintColor = .red
-            case "cloudy":
-                weatherImageView.tintColor = .gray
-            case "rainy":
-                weatherImageView.tintColor = .blue
-            default:
-                return
+            let weatherAPIRequest = """
+            {
+                "area": "tokyo",
+                "date": "2020-04-01T12:00:00+09:00"
             }
+            """
+            let jsonString = try YumemiWeather.fetchWeather(weatherAPIRequest)
+            let jsonData = jsonString.data(using: .utf8)!
+            let decoder = JSONDecoder()
+            let weatherData = try decoder.decode(WeatherDataModel.self, from: jsonData)
+            setWeatherUI(weatherData: weatherData)
             
         } catch {
             let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
