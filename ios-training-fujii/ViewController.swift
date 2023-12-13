@@ -10,7 +10,11 @@ import YumemiWeather
 
 final class ViewController: UIViewController {
 
-    @IBOutlet private weak var weatherImageView: UIImageView!
+
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var minTemperatureLabel: UILabel!
+    @IBOutlet weak var maxTemperatureLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,29 @@ final class ViewController: UIViewController {
             print(error)
         }
     }
+    
+    func setWeatherUI(weatherData: WeatherDataModel) {
+        let weatherImage = UIImage(named: weatherData.weather_condition)
+        let mimTemperature = String(weatherData.min_temperature)
+        let maxTemperature = String(weatherData.max_temperature)
+    
+        weatherImageView.image = weatherImage
+        minTemperatureLabel.text = mimTemperature
+        maxTemperatureLabel.text = maxTemperature
+        
+        switch weatherData.weather_condition {
+        case "sunny":
+            weatherImageView.tintColor = .red
+        case "cloudy":
+            weatherImageView.tintColor = .gray
+        case "rainy":
+            weatherImageView.tintColor = .blue
+        default:
+            weatherImageView.tintColor = .clear
+        }
+        
+    }
+
 
 
 }
