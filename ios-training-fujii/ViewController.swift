@@ -8,39 +8,44 @@
 import UIKit
 import YumemiWeather
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet private weak var weatherImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchWeather()
+        fetchWeather(area: "tokyo")
     }
     
-    @IBAction func weatherReloadButton() {
+    @IBAction private func weatherReloadButton() {
 
-        fetchWeather()
+        fetchWeather(area: "tokyo")
     }
     
-    func fetchWeather() -> Void {
-        let weatherImageString: String = YumemiWeather.fetchWeatherCondition()
-        let weatherImage = UIImage(named: weatherImageString)
-        weatherImageView.image = weatherImage
-        
-        switch weatherImageString {
-        case "sunny":
-            weatherImageView.tintColor = .red
-        case "cloudy":
-            weatherImageView.tintColor = .gray
-        case "rainy":
-            weatherImageView.tintColor = .blue
-        default:
-            return
+    private func fetchWeather(area: String) -> Void {
+        do {
+            let weatherImageString = try YumemiWeather.fetchWeatherCondition(at: area)
+            let weatherImage = UIImage(named: weatherImageString)
+            weatherImageView.image = weatherImage
+            
+            switch weatherImageString {
+            case "sunny":
+                weatherImageView.tintColor = .red
+            case "cloudy":
+                weatherImageView.tintColor = .gray
+            case "rainy":
+                weatherImageView.tintColor = .blue
+            default:
+                return
+            }
+            
+        } catch {
+            let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "閉じる", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            print(error)
         }
-        
-        print(weatherImageString)
-        
     }
 
 
