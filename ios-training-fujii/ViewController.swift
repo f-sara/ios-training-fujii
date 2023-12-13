@@ -44,10 +44,9 @@ final class ViewController: UIViewController {
     }
     
     private func getDate() -> String {
-        let date = Date()
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        return dateFormatter.string(from: date)
+        return dateFormatter.string(from: Date())
     }
     
     private func showAlert(error: Error) {
