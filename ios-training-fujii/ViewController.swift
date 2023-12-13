@@ -9,13 +9,13 @@ import UIKit
 import YumemiWeather
 
 final class ViewController: UIViewController {
-
-
+    
+    
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var maxTemperatureLabel: UILabel!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,9 +41,20 @@ final class ViewController: UIViewController {
             setWeatherUI(weatherData: weatherData)
             
         } catch {
-            showAlert(error: error)
+            switch error {
+            case is EncodingError:
+                print("エンコードエラー:\(error)")
+                showAlert(title: "エンコードエラー", error: error)
+            case is DecodingError:
+                print("デコードエラー：\(error)")
+                showAlert(title: "デコードエラー", error: error)
+            default:
+                print("APIエラー:\(error)")
+                showAlert(title: "APIエラー", error: error)
+            }
         }
     }
+    
     
     private func getDate() -> String {
         let dateFormatter = ISO8601DateFormatter()
@@ -51,8 +62,8 @@ final class ViewController: UIViewController {
         return dateFormatter.string(from: Date())
     }
     
-    private func showAlert(error: Error) {
-        let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
+    private func showAlert(title: String, error: Error) {
+        let alert = UIAlertController(title: title, message: "\(error)が発生しました。", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
@@ -61,7 +72,7 @@ final class ViewController: UIViewController {
         let weatherImage = UIImage(named: weatherData.weatherCondition)
         let mimTemperature = String(weatherData.minTemperature)
         let maxTemperature = String(weatherData.maxTemperature)
-    
+        
         weatherImageView.image = weatherImage
         minTemperatureLabel.text = mimTemperature
         maxTemperatureLabel.text = maxTemperature
@@ -78,8 +89,8 @@ final class ViewController: UIViewController {
         }
         
     }
-
-
-
+    
+    
+    
 }
 
