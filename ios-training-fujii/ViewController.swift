@@ -11,9 +11,9 @@ import YumemiWeather
 final class ViewController: UIViewController {
     
     
-    @IBOutlet weak var weatherImageView: UIImageView!
-    @IBOutlet weak var minTemperatureLabel: UILabel!
-    @IBOutlet weak var maxTemperatureLabel: UILabel!
+    @IBOutlet @ViewLoading private var weatherImageView: UIImageView
+    @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
+    @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
     
     
     override func viewDidLoad() {
