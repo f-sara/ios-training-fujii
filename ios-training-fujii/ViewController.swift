@@ -35,7 +35,9 @@ final class ViewController: UIViewController {
             let stringRequest = String(data: jsonRequest, encoding: .utf8)!
             let jsonString = try YumemiWeather.fetchWeather(stringRequest)
             let jsonData = jsonString.data(using: .utf8)!
-            let weatherData = try JSONDecoder().decode(WeatherDataModel.self, from: jsonData)
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            let weatherData = try jsonDecoder.decode(WeatherDataModel.self, from: jsonData)
             setWeatherUI(weatherData: weatherData)
             
         } catch {
@@ -56,15 +58,15 @@ final class ViewController: UIViewController {
     }
     
     private func setWeatherUI(weatherData: WeatherDataModel) {
-        let weatherImage = UIImage(named: weatherData.weather_condition)
-        let mimTemperature = String(weatherData.min_temperature)
-        let maxTemperature = String(weatherData.max_temperature)
+        let weatherImage = UIImage(named: weatherData.weatherCondition)
+        let mimTemperature = String(weatherData.minTemperature)
+        let maxTemperature = String(weatherData.maxTemperature)
     
         weatherImageView.image = weatherImage
         minTemperatureLabel.text = mimTemperature
         maxTemperatureLabel.text = maxTemperature
         
-        switch weatherData.weather_condition {
+        switch weatherData.weatherCondition {
         case "sunny":
             weatherImageView.tintColor = .red
         case "cloudy":

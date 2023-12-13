@@ -13,8 +13,8 @@ struct WeatherAPIRequest: Codable {
 }
 
 struct WeatherDataModel: Codable {
-    var max_temperature: Int
+    var maxTemperature: Int
     var date: String
-    var min_temperature: Int
-    var weather_condition: String
+    var minTemperature: Int
+    var weatherCondition: String
 }
