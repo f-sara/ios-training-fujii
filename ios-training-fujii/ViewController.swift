@@ -57,9 +57,10 @@ final class ViewController: UIViewController {
     
     private func decodeAPIResponse(responseData: String) throws -> WeatherDataModel {
         let jsonData = responseData.data(using: .utf8)!
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-        let weatherData = try jsonDecoder.decode(WeatherDataModel.self, from: jsonData)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        let weatherData = try decoder.decode(WeatherDataModel.self, from: jsonData)
         return weatherData
     }
     
