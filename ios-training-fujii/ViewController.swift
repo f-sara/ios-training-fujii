@@ -39,7 +39,6 @@ final class ViewController: UIViewController {
             default:
                 return
             }
-            print(weatherImageString)
             
         } catch {
             let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
