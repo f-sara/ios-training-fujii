@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct WeatherDataModel: Decodable {
+struct WeatherAPIRequest: Codable {
+    var area: String
+    var date: String
+}
+
+struct WeatherDataModel: Codable {
     var max_temperature: Int
     var date: String
     var min_temperature: Int
