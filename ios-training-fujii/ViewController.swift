@@ -10,7 +10,7 @@ import YumemiWeather
 
 final class ViewController: UIViewController {
 
-    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet private weak var weatherImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
         fetchWeather(area: "tokyo")
     }
     
-    @IBAction func weatherReloadButton() {
+    @IBAction private func weatherReloadButton() {
 
         fetchWeather(area: "tokyo")
     }
