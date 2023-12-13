@@ -29,23 +29,22 @@ final class ViewController: UIViewController {
     
     func fetchWeatherAPI(area: String) -> Void {
         do {
-            let weatherAPIRequest = """
-            {
-                "area": "tokyo",
-                "date": "2020-04-01T12:00:00+09:00"
-            }
-            """
-            let jsonString = try YumemiWeather.fetchWeather(weatherAPIRequest)
+            let date = Date()
+            let dateFormatter = ISO8601DateFormatter()
+            dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+            print(dateFormatter.string(from: date))
+            let weatherAPIRequest = WeatherAPIRequest(area: area, date: dateFormatter.string(from: date))
+            let jsonRequest = try JSONEncoder().encode(weatherAPIRequest)
+            let stringRequest = String(data: jsonRequest, encoding: .utf8)!
+            let jsonString = try YumemiWeather.fetchWeather(stringRequest)
             let jsonData = jsonString.data(using: .utf8)!
-            let decoder = JSONDecoder()
-            let weatherData = try decoder.decode(WeatherDataModel.self, from: jsonData)
+            let weatherData = try JSONDecoder().decode(WeatherDataModel.self, from: jsonData)
             setWeatherUI(weatherData: weatherData)
             
         } catch {
             let alert = UIAlertController(title: "エラー", message: "エラー(\(error))が発生しました。", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "閉じる", style: .default))
             self.present(alert, animated: true, completion: nil)
-            print(error)
         }
     }
     
