@@ -29,11 +29,8 @@ final class ViewController: UIViewController {
     
     func fetchWeatherAPI(area: String) -> Void {
         do {
-            let date = Date()
-            let dateFormatter = ISO8601DateFormatter()
-            dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-            print(dateFormatter.string(from: date))
-            let weatherAPIRequest = WeatherAPIRequest(area: area, date: dateFormatter.string(from: date))
+            let date = getDate()
+            let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
             let jsonRequest = try JSONEncoder().encode(weatherAPIRequest)
             let stringRequest = String(data: jsonRequest, encoding: .utf8)!
             let jsonString = try YumemiWeather.fetchWeather(stringRequest)
@@ -44,6 +41,13 @@ final class ViewController: UIViewController {
         } catch {
             showAlert(error: error)
         }
+    }
+    
+    private func getDate() -> String {
+        let date = Date()
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        return dateFormatter.string(from: date)
     }
     
     private func showAlert(error: Error) {
