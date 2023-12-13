@@ -9,7 +9,7 @@ import Foundation
 
 struct WeatherAPIRequest: Codable {
     var area: String
-    var date: String
+    var date: Date
 }
 
 struct WeatherDataModel: Codable {
