@@ -19,8 +19,8 @@ struct WeatherAPIRequest: Encodable {
 }
 
 struct WeatherDataModel: Decodable {
-    var maxTemperature: Int
     var date: Date
-    var minTemperature: Int
     var weatherCondition: WeatherCondition
+    var maxTemperature: Int
+    var minTemperature: Int
 }
