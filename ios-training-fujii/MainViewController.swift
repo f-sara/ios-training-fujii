@@ -19,8 +19,22 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadWeather(area: "tokyo")
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(viewWillEnterForeground(_:)),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+
     }
     
+
+    @objc func viewWillEnterForeground(_ notification: Notification?) {
+        if (self.isViewLoaded && (self.view.window != nil)) {
+            reloadWeather(area: "tokyo")
+        }
+    }
+
     @IBAction func reloadWeather() {
         reloadWeather(area: "tokyo")
     }
