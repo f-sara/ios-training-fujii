@@ -46,11 +46,10 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func encodeAPIRequest(area: String, date: Date) throws -> String {
-        let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
+    private func encodeAPIRequest(request: WeatherAPIRequest) throws -> String {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
-        let data = try encoder.encode(weatherAPIRequest)
+        let data = try encoder.encode(request)
         return String(data: data, encoding: .utf8)!
     }
     
@@ -65,7 +64,8 @@ final class ViewController: UIViewController {
     
     private func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
         let date = Date()
-        let requestAPIData = try encodeAPIRequest(area: area, date: date)
+        let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
+        let requestAPIData = try encodeAPIRequest(request: weatherAPIRequest)
         let responseAPIData = try YumemiWeather.fetchWeather(requestAPIData)
         let weatherData = try decodeAPIResponse(responseData: responseAPIData)
         return weatherData
