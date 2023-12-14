@@ -74,7 +74,7 @@ final class ViewController: UIViewController {
     private func showAlert(title: String, error: Error) {
         let alert = UIAlertController(title: title, message: "\(error)が発生しました。", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
     
     private func setWeatherUI(weatherData: WeatherDataModel) {
