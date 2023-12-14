@@ -96,3 +96,19 @@ final class ViewController: UIViewController {
     
 }
 
+extension WeatherCondition {
+    var weatherImage: UIImage {
+        return UIImage(named: rawValue) ?? UIImage()
+    }
+    
+    var tintColor: UIColor {
+        switch self {
+        case .sunny:
+            return .red
+        case .cloudy:
+            return .gray
+        case .rainy:
+            return .blue
+        }
+    }
+}
