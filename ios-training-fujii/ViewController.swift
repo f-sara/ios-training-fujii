@@ -98,7 +98,10 @@ final class ViewController: UIViewController {
 
 extension WeatherCondition {
     var weatherImage: UIImage {
-        return UIImage(named: rawValue) ?? UIImage()
+        return UIImage(named: rawValue) ?? {
+            assertionFailure("UIImage(named: \(rawValue)) returned nil.")
+            return UIImage()
+        }()
     }
     
     var tintColor: UIColor {
