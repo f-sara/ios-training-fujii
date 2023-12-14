@@ -15,10 +15,6 @@ final class FirstViewController: UIViewController {
         view.backgroundColor = UIColor.black
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.performSegue(withIdentifier: "toMainView", sender: nil)
