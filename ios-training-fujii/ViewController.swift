@@ -46,8 +46,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func encodeAPIRequest(area: String) throws -> String {
-        let date = getDate()
+    private func encodeAPIRequest(area: String, date: Date) throws -> String {
         let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
@@ -65,16 +64,11 @@ final class ViewController: UIViewController {
     }
     
     private func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
-        let requestAPIData = try encodeAPIRequest(area: area)
+        let date = Date()
+        let requestAPIData = try encodeAPIRequest(area: area, date: date)
         let responseAPIData = try YumemiWeather.fetchWeather(requestAPIData)
         let weatherData = try decodeAPIResponse(responseData: responseAPIData)
         return weatherData
-    }
-    
-    private func getDate() -> Date {
-        let dateFormatter = ISO8601DateFormatter()
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        return Date()
     }
     
     private func showAlert(title: String, error: Error) {
