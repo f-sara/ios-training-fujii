@@ -32,18 +32,22 @@ final class ViewController: UIViewController {
             let weatherData = try fetchWeatherAPI(area: area)
             setWeatherUI(weatherData: weatherData)
         } catch {
-            switch error {
-            case is EncodingError:
-                print("エンコードエラー:\(error)")
-                showAlert(title: "エンコードエラー", error: error)
-            case is DecodingError:
-                print("デコードエラー：\(error)")
-                showAlert(title: "デコードエラー", error: error)
-            default:
-                print("APIエラー:\(error)")
-                showAlert(title: "APIエラー", error: error)
-            }
+            handleWeatherError(error: error)
         }
+    }
+    
+    private func handleWeatherError(error: Error) {
+        var title: String
+        switch error {
+        case is EncodingError:
+            title = "エンコードエラー"
+        case is DecodingError:
+            title = "デコードエラー"
+        default:
+            title = "APIエラー"
+        }
+        let message = "\(error)が発生しました。"
+        showAlert(title: title, message: message)
     }
     
     private func encodeAPIRequest(request: WeatherAPIRequest) throws -> String {
@@ -71,13 +75,13 @@ final class ViewController: UIViewController {
         return weatherData
     }
     
-    private func showAlert(title: String, error: Error) {
-        let alert = UIAlertController(title: title, message: "\(error)が発生しました。", preferredStyle: .alert)
+    private func showAlert(title: String, message: String) -> Void {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
         self.present(alert, animated: true)
     }
     
-    private func setWeatherUI(weatherData: WeatherDataModel) {
+    private func setWeatherUI(weatherData: WeatherDataModel) -> Void {
         let weatherCondition = weatherData.weatherCondition
         let mimTemperature = String(weatherData.minTemperature)
         let maxTemperature = String(weatherData.maxTemperature)
