@@ -78,25 +78,14 @@ final class ViewController: UIViewController {
     }
     
     private func setWeatherUI(weatherData: WeatherDataModel) {
-        let weatherImage = UIImage(named: weatherData.weatherCondition)
+        let weatherCondition = weatherData.weatherCondition
         let mimTemperature = String(weatherData.minTemperature)
         let maxTemperature = String(weatherData.maxTemperature)
         
-        weatherImageView.image = weatherImage
+        weatherImageView.image = weatherCondition.weatherImage
+        weatherImageView.tintColor = weatherCondition.tintColor
         minTemperatureLabel.text = mimTemperature
         maxTemperatureLabel.text = maxTemperature
-        
-        switch weatherData.weatherCondition {
-        case "sunny":
-            weatherImageView.tintColor = .red
-        case "cloudy":
-            weatherImageView.tintColor = .gray
-        case "rainy":
-            weatherImageView.tintColor = .blue
-        default:
-            weatherImageView.tintColor = .clear
-        }
-        
     }
     
     
