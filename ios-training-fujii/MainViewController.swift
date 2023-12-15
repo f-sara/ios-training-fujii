@@ -21,11 +21,11 @@ final class MainViewController: UIViewController {
         reloadWeather(area: "tokyo")
     }
     
-    @IBAction func weatherReloadButton() {
+    @IBAction func reloadWeather() {
         reloadWeather(area: "tokyo")
     }
     
-    @IBAction func closeButton() {
+    @IBAction func closeView() {
         dismiss(animated: true)
     }
     
