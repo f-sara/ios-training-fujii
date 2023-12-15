@@ -11,7 +11,7 @@ final class FirstViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = .black
     }
     
     override func viewDidAppear(_ animated: Bool) {
