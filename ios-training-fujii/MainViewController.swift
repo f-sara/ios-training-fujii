@@ -29,7 +29,7 @@ final class MainViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    func reloadWeather(area: String) -> Void {
+    func reloadWeather(area: String) {
         do {
             let weatherData = try fetchWeatherAPI(area: area)
             setWeatherUI(weatherData: weatherData)
@@ -77,13 +77,13 @@ final class MainViewController: UIViewController {
         return weatherData
     }
     
-    private func showAlert(title: String, message: String) -> Void {
+    private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
         self.present(alert, animated: true)
     }
     
-    private func setWeatherUI(weatherData: WeatherDataModel) -> Void {
+    private func setWeatherUI(weatherData: WeatherDataModel) {
         let weatherCondition = weatherData.weatherCondition
         let mimTemperature = String(weatherData.minTemperature)
         let maxTemperature = String(weatherData.maxTemperature)
