@@ -14,8 +14,6 @@ final class MainViewController: UIViewController {
     @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
     
-    @ViewLoading private var alert: UIAlertController
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadWeather(area: "tokyo")
@@ -44,7 +42,8 @@ final class MainViewController: UIViewController {
     
     @objc func viewDidEnterBackground(_ notification: Notification?) {
         if (self.isViewLoaded && (self.view.window != nil)) {
-            alert.dismiss(animated: true)
+            // alert以外の画面に遷移する場合は修正が必要
+            presentedViewController?.dismiss(animated: true)
         }
     }
 
@@ -105,7 +104,7 @@ final class MainViewController: UIViewController {
     }
     
     private func showAlert(title: String, message: String) {
-        alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
         self.present(alert, animated: true)
     }
