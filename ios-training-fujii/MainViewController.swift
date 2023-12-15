@@ -8,7 +8,7 @@
 import UIKit
 import YumemiWeather
 
-final class ViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     
     @IBOutlet @ViewLoading private var weatherImageView: UIImageView
@@ -18,16 +18,18 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reloadWeather(area: "tokyo")
     }
     
-    @IBAction func weatherReloadButton() {
-        
+    @IBAction func reloadWeather() {
         reloadWeather(area: "tokyo")
     }
     
-    func reloadWeather(area: String) -> Void {
+    @IBAction func closeView() {
+        dismiss(animated: true)
+    }
+    
+    func reloadWeather(area: String) {
         do {
             let weatherData = try fetchWeatherAPI(area: area)
             setWeatherUI(weatherData: weatherData)
@@ -75,13 +77,13 @@ final class ViewController: UIViewController {
         return weatherData
     }
     
-    private func showAlert(title: String, message: String) -> Void {
+    private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
         self.present(alert, animated: true)
     }
     
-    private func setWeatherUI(weatherData: WeatherDataModel) -> Void {
+    private func setWeatherUI(weatherData: WeatherDataModel) {
         let weatherCondition = weatherData.weatherCondition
         let mimTemperature = String(weatherData.minTemperature)
         let maxTemperature = String(weatherData.maxTemperature)

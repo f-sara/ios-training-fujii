@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD4742352B2ADC4900EE4179 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4742342B2ADC4900EE4179 /* FirstViewController.swift */; };
 		FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8012B26ADBB0001A153 /* AppDelegate.swift */; };
 		FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */; };
-		FD62F8062B26ADBB0001A153 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8052B26ADBB0001A153 /* ViewController.swift */; };
+		FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8052B26ADBB0001A153 /* MainViewController.swift */; };
 		FD62F8092B26ADBB0001A153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62F8072B26ADBB0001A153 /* Main.storyboard */; };
 		FD62F80B2B26ADBB0001A153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD62F80A2B26ADBB0001A153 /* Assets.xcassets */; };
 		FD62F80E2B26ADBB0001A153 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */; };
@@ -38,10 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD4742342B2ADC4900EE4179 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-training-fujii.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD62F8012B26ADBB0001A153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FD62F8052B26ADBB0001A153 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD62F8052B26ADBB0001A153 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FD62F8082B26ADBB0001A153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD62F80A2B26ADBB0001A153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD62F80D2B26ADBB0001A153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,7 +107,8 @@
 			children = (
 				FD62F8012B26ADBB0001A153 /* AppDelegate.swift */,
 				FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */,
-				FD62F8052B26ADBB0001A153 /* ViewController.swift */,
+				FD62F8052B26ADBB0001A153 /* MainViewController.swift */,
+				FD4742342B2ADC4900EE4179 /* FirstViewController.swift */,
 				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
 				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
 				FD62F80A2B26ADBB0001A153 /* Assets.xcassets */,
@@ -269,8 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4742352B2ADC4900EE4179 /* FirstViewController.swift in Sources */,
 				FDC811492B28622100B2BD8B /* WeatherDataModel.swift in Sources */,
-				FD62F8062B26ADBB0001A153 /* ViewController.swift in Sources */,
+				FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */,
 				FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */,
 				FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */,
 			);
