@@ -10,11 +10,11 @@ import YumemiWeather
 
 final class MainViewController: UIViewController {
     
-    
     @IBOutlet @ViewLoading private var weatherImageView: UIImageView
     @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
     
+    @ViewLoading private var alert: UIAlertController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +25,26 @@ final class MainViewController: UIViewController {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
-
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(viewDidEnterBackground(_:)),
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
+        
     }
     
 
     @objc func viewWillEnterForeground(_ notification: Notification?) {
         if (self.isViewLoaded && (self.view.window != nil)) {
             reloadWeather(area: "tokyo")
+        }
+    }
+    
+    @objc func viewDidEnterBackground(_ notification: Notification?) {
+        if (self.isViewLoaded && (self.view.window != nil)) {
+            alert.dismiss(animated: true)
         }
     }
 
@@ -92,7 +105,7 @@ final class MainViewController: UIViewController {
     }
     
     private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "閉じる", style: .default))
         self.present(alert, animated: true)
     }
