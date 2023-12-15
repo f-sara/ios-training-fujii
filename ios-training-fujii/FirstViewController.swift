@@ -5,7 +5,6 @@
 //  Created by 藤井 紗良 on 2023/12/14.
 //
 
-import Foundation
 import UIKit
 
 final class FirstViewController: UIViewController {
