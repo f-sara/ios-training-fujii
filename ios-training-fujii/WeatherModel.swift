@@ -13,7 +13,17 @@ protocol WeatherModel {
     func fetchWeatherAPI(area: String) throws -> WeatherDataModel
 }
 
-class WeatherModelImpl: WeatherModel {
+/// @mockable
+protocol WeatherDataEncode {
+    func encodeAPIRequest(request: WeatherAPIRequest) throws -> String
+}
+
+/// @mockable
+protocol WeatherDataDecode {
+    func decodeAPIResponse(responseData: String) throws -> WeatherDataModel
+}
+
+class WeatherModelImpl: WeatherModel, WeatherDataEncode, WeatherDataDecode {
     func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
         let date = Date()
         let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
@@ -22,9 +32,7 @@ class WeatherModelImpl: WeatherModel {
         let weatherData = try decodeAPIResponse(responseData: responseAPIData)
         return weatherData
     }
-}
-
-private extension WeatherModelImpl {
+    
     func encodeAPIRequest(request: WeatherAPIRequest) throws -> String {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
@@ -39,22 +47,6 @@ private extension WeatherModelImpl {
         decoder.dateDecodingStrategy = .iso8601
         let weatherData = try decoder.decode(WeatherDataModel.self, from: jsonData)
         return weatherData
-    }
-    
-}
-
-class WeatherModelMock: WeatherModel {
-    init() { }
-
-
-    private(set) var fetchWeatherAPICallCount = 0
-    var fetchWeatherAPIHandler: ((String) throws -> (WeatherDataModel))?
-    func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
-        fetchWeatherAPICallCount += 1
-        if let fetchWeatherAPIHandler = fetchWeatherAPIHandler {
-            return try fetchWeatherAPIHandler(area)
-        }
-        fatalError("fetchWeatherAPIHandler returns can't have a default value thus its handler must be set")
     }
 }
 
