@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
         
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
             .sink { [weak self] notification in
-                self?.viewWillEnterForeground()
+                self?.reloadWeather()
             }
             .store(in: &cancellables)
         
