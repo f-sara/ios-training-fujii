@@ -26,28 +26,6 @@ final class MainViewController: UIViewController {
                 self?.reloadWeather()
             }
             .store(in: &cancellables)
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(viewDidEnterBackground(_:)),
-            name: UIApplication.didEnterBackgroundNotification,
-            object: nil
-        )
-    }
-    
-    func viewWillEnterForeground() {
-        reloadWeather()
-    }
-
-    @objc func viewDidEnterBackground(_ notification: Notification?) {
-        if (self.isViewLoaded && (self.view.window != nil)) {
-            // alert以外の画面に遷移する場合は修正が必要
-            presentedViewController?.dismiss(animated: true)
-        }
-    }
-    
-    func background() {
-        presentedViewController?.dismiss(animated: true)
     }
 
     @IBAction func reloadWeather() {
