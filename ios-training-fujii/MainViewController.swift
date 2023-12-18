@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
     @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
     
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
