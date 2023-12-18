@@ -9,28 +9,24 @@ import XCTest
 @testable import ios_training_fujii
 
 final class ios_training_fujiiTests: XCTestCase {
+    
+    func testWeatherConditionSunny() {
+        let viewController = MainViewController()
+        let weatherModelMock = WeatherModelMock()
+        viewController.weatherModel = weatherModelMock
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        weatherModelMock.fetchWeatherAPIHandler = { _ in
+            return WeatherDataModel(date: Date(), weatherCondition: .sunny, maxTemperature: 20, minTemperature: 10)
         }
+        
+        viewController.reloadWeather(area: "tokyo")
+        
+        XCTAssertEqual(viewController.weatherImageView.image, UIImage(named: "sunny"))
+        XCTAssertEqual(viewController.weatherImageView.tintColor, .red)
     }
-
+    
 }
+
+
+
+

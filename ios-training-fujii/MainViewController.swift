@@ -11,9 +11,9 @@ import Combine
 
 final class MainViewController: UIViewController {
     
-    @IBOutlet @ViewLoading private var weatherImageView: UIImageView
-    @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
-    @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
+    @IBOutlet @ViewLoading var weatherImageView: UIImageView = UIImageView()
+    @IBOutlet @ViewLoading var minTemperatureLabel: UILabel = UILabel()
+    @IBOutlet @ViewLoading var maxTemperatureLabel: UILabel = UILabel()
     
     private var cancellables = Set<AnyCancellable>()
     
