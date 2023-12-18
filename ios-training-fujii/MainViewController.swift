@@ -7,20 +7,26 @@
 
 import UIKit
 import YumemiWeather
+import Combine
 
 final class MainViewController: UIViewController {
-    
     
     @IBOutlet @ViewLoading private var weatherImageView: UIImageView
     @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
     
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadWeather(area: "tokyo")
+
+        NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
+            .sink { [weak self] notification in
+                self?.reloadWeather()
+            }
+            .store(in: &cancellables)
     }
-    
+
     @IBAction func reloadWeather() {
         reloadWeather(area: "tokyo")
     }

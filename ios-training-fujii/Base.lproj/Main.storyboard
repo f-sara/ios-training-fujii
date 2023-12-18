@@ -70,7 +70,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Close"/>
                                         <connections>
-                                            <action selector="closeButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Me3-0f-hcG"/>
+                                            <action selector="closeView" destination="BYZ-38-t0r" eventType="touchUpInside" id="fBR-MG-189"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-VG-CBM">
@@ -78,7 +78,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Reload"/>
                                         <connections>
-                                            <action selector="weatherReloadButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qth-Zc-cDC"/>
+                                            <action selector="reloadWeather" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xdj-nU-bMj"/>
                                         </connections>
                                     </button>
                                 </subviews>
