@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD4742352B2ADC4900EE4179 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4742342B2ADC4900EE4179 /* FirstViewController.swift */; };
+		FD4EC6AD2B3035DC005B05A6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */; };
 		FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8012B26ADBB0001A153 /* AppDelegate.swift */; };
 		FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */; };
 		FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8052B26ADBB0001A153 /* MainViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		FD4742342B2ADC4900EE4179 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-training-fujii.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD62F8012B26ADBB0001A153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				FD62F8052B26ADBB0001A153 /* MainViewController.swift */,
 				FD4742342B2ADC4900EE4179 /* FirstViewController.swift */,
 				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
+				FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */,
 				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
 				FD62F80A2B26ADBB0001A153 /* Assets.xcassets */,
 				FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */,
@@ -276,6 +279,7 @@
 				FDC811492B28622100B2BD8B /* WeatherDataModel.swift in Sources */,
 				FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */,
 				FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */,
+				FD4EC6AD2B3035DC005B05A6 /* WeatherModel.swift in Sources */,
 				FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

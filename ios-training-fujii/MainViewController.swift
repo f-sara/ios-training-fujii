@@ -17,16 +17,18 @@ final class MainViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
+    var weatherModel: WeatherModel = WeatherModelImpl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
             .sink { [weak self] notification in
                 self?.reloadWeather()
             }
             .store(in: &cancellables)
     }
-
+    
     @IBAction func reloadWeather() {
         reloadWeather(area: "tokyo")
     }
@@ -37,7 +39,7 @@ final class MainViewController: UIViewController {
     
     func reloadWeather(area: String) {
         do {
-            let weatherData = try fetchWeatherAPI(area: area)
+            let weatherData = try weatherModel.fetchWeatherAPI(area: area)
             setWeatherUI(weatherData: weatherData)
         } catch {
             handleWeatherError(error: error)
@@ -56,31 +58,6 @@ final class MainViewController: UIViewController {
         }
         let message = "\(error)が発生しました。"
         showAlert(title: title, message: message)
-    }
-    
-    private func encodeAPIRequest(request: WeatherAPIRequest) throws -> String {
-        let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
-        let data = try encoder.encode(request)
-        return String(data: data, encoding: .utf8)!
-    }
-    
-    private func decodeAPIResponse(responseData: String) throws -> WeatherDataModel {
-        let jsonData = responseData.data(using: .utf8)!
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .iso8601
-        let weatherData = try decoder.decode(WeatherDataModel.self, from: jsonData)
-        return weatherData
-    }
-    
-    private func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
-        let date = Date()
-        let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
-        let requestAPIData = try encodeAPIRequest(request: weatherAPIRequest)
-        let responseAPIData = try YumemiWeather.fetchWeather(requestAPIData)
-        let weatherData = try decodeAPIResponse(responseData: responseAPIData)
-        return weatherData
     }
     
     private func showAlert(title: String, message: String) {
