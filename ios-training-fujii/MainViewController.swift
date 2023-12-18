@@ -7,6 +7,7 @@
 
 import UIKit
 import YumemiWeather
+import Combine
 
 final class MainViewController: UIViewController {
     
@@ -14,15 +15,17 @@ final class MainViewController: UIViewController {
     @IBOutlet @ViewLoading private var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading private var maxTemperatureLabel: UILabel
     
+    var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadWeather(area: "tokyo")
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(viewWillEnterForeground(_:)),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
+        
+        NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
+            .sink { [weak self] notification in
+                self?.viewWillEnterForeground()
+            }
+            .store(in: &cancellables)
         
         NotificationCenter.default.addObserver(
             self,
@@ -30,21 +33,21 @@ final class MainViewController: UIViewController {
             name: UIApplication.didEnterBackgroundNotification,
             object: nil
         )
-        
     }
     
+    func viewWillEnterForeground() {
+        reloadWeather()
+    }
 
-    @objc func viewWillEnterForeground(_ notification: Notification?) {
-        if (self.isViewLoaded && (self.view.window != nil)) {
-            reloadWeather(area: "tokyo")
-        }
-    }
-    
     @objc func viewDidEnterBackground(_ notification: Notification?) {
         if (self.isViewLoaded && (self.view.window != nil)) {
             // alert以外の画面に遷移する場合は修正が必要
             presentedViewController?.dismiss(animated: true)
         }
+    }
+    
+    func background() {
+        presentedViewController?.dismiss(animated: true)
     }
 
     @IBAction func reloadWeather() {
