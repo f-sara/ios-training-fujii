@@ -19,8 +19,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadWeather(area: "tokyo")
-        
+
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
             .sink { [weak self] notification in
                 self?.reloadWeather()
