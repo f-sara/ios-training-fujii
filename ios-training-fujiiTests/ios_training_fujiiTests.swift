@@ -9,8 +9,8 @@ import XCTest
 @testable import ios_training_fujii
 
 final class ios_training_fujiiTests: XCTestCase {
-    var mainViewController: MainViewController = MainViewController()
-    var weatherModelMock: WeatherModelMock = WeatherModelMock()
+    private var mainViewController: MainViewController = MainViewController()
+    private var weatherModelMock: WeatherModelMock = WeatherModelMock()
     
     override func setUp() {
         super.setUp()

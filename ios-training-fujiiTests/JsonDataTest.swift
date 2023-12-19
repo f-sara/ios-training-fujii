@@ -9,23 +9,7 @@ import XCTest
 @testable import ios_training_fujii
 
 final class JsonDataTest: XCTestCase {
-    var weatherModelMock: WeatherModelMock = WeatherModelMock()
-    
-    let apiRequest = """
-        {
-            "area": "tokyo",
-            "date": "2020-04-01T12:00:00+09:00"
-        }
-    """
-    
-    let apiResponse = """
-        {
-            "max_temperature":25,
-            "date":"2020-04-01T12:00:00+09:00",
-            "min_temperature":7,
-            "weather_condition":"cloudy"
-        }
-    """
+    private var weatherModelMock: WeatherModelMock = WeatherModelMock()
     
     override func setUp() {
         super.setUp()
@@ -37,11 +21,17 @@ final class JsonDataTest: XCTestCase {
         let encodeMock: WeatherDataEncodeMock = WeatherDataEncodeMock()
         let date = Date()
         let encodeData: String
+        let apiRequest = """
+            {
+                "area": "tokyo",
+                "date": "2020-04-01T12:00:00+09:00"
+            }
+        """
         
         encodeMock.encodeAPIRequestHandler = { request in
             XCTAssertEqual(request.area, "tokyo")
             XCTAssertEqual(request.date, date)
-            return self.apiRequest
+            return apiRequest
         }
 
         do {
@@ -50,7 +40,7 @@ final class JsonDataTest: XCTestCase {
             encodeData = ""
         }
         
-        XCTAssertEqual(encodeData, self.apiRequest)
+        XCTAssertEqual(encodeData, apiRequest)
     }
     
     func testDecodeAPIResponse() {
