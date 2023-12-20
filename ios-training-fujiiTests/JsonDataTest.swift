@@ -17,7 +17,7 @@ final class JsonDataTest: XCTestCase {
     override func setUp() {
         super.setUp()
     }
-     
+    
     
     func testEncodeAPIRequest() {
         let date = Date()
@@ -42,12 +42,8 @@ final class JsonDataTest: XCTestCase {
         XCTAssert(encodeDataHyogo == apiRequestHyogo || encodeDataHyogo == reversedAPIRequestHyogo)
     }
     
-    func testDecodeAPIResponse() {
-        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        let date = Date()
-        let responseDate = formatter.string(from: date)
-        let decodeData: WeatherDataModel
-        
+    func testDecodeAPIResponseCloudy() {
+        let responseDate = getResponseDate()
         let apiResponse = """
             {
                 "max_temperature":25,
@@ -57,49 +53,12 @@ final class JsonDataTest: XCTestCase {
             }
         """
         
-        print(apiResponse)
-        
-        let weatherData = WeatherDataModel(date: date, weatherCondition: .cloudy, maxTemperature: 25, minTemperature: 7)
-        
-        do {
-            decodeData = try weatherModel.decodeAPIResponse(responseData: apiResponse)
-        } catch {
-            XCTFail(error.localizedDescription)
-            return
-        }
-        
-        XCTAssertEqual(decodeData, weatherData)
+        testDecodeRequest(apiResponse: apiResponse, weatherCondition: .cloudy)
 
     }
     
-    func testDecodeAPIResponseFail() {
-        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        let date = Date()
-        let responseDate = formatter.string(from: date)
-        
-        let apiResponse = """
-            {
-                "max_temperature":25,
-                "date":"\(responseDate)",
-                "min_temperature":7,
-                "weather_condition":"snowy"
-            }
-        """
-        
-        print(apiResponse)
-        
-        XCTAssertThrowsError(try weatherModel.decodeAPIResponse(responseData: apiResponse)) { error in
-            XCTAssertTrue(error is DecodingError)
-        }
-    
-    }
-    
     func testDecodeAPIResponseSunny() {
-        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        let date = Date()
-        let responseDate = formatter.string(from: date)
-        let decodeData: WeatherDataModel
-        
+        let responseDate = getResponseDate()
         let apiResponse = """
             {
                 "max_temperature":25,
@@ -109,27 +68,11 @@ final class JsonDataTest: XCTestCase {
             }
         """
         
-        print(apiResponse)
-        
-        let weatherData = WeatherDataModel(date: date, weatherCondition: .sunny, maxTemperature: 25, minTemperature: 7)
-        
-        do {
-            decodeData = try weatherModel.decodeAPIResponse(responseData: apiResponse)
-        } catch {
-            XCTFail(error.localizedDescription)
-            return
-        }
-        
-        XCTAssertEqual(decodeData, weatherData)
-
+        testDecodeRequest(apiResponse: apiResponse, weatherCondition: .sunny)
     }
     
     func testDecodeAPIResponseRainy() {
-        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        let date = Date()
-        let responseDate = formatter.string(from: date)
-        let decodeData: WeatherDataModel
-        
+        let responseDate = getResponseDate()
         let apiResponse = """
             {
                 "max_temperature":25,
@@ -139,9 +82,39 @@ final class JsonDataTest: XCTestCase {
             }
         """
         
-        print(apiResponse)
+        testDecodeRequest(apiResponse: apiResponse, weatherCondition: .rainy)
+    }
+    
+    func testDecodeAPIResponseFail() {
+        let responseDate = getResponseDate()
+        let apiResponse = """
+            {
+                "max_temperature":25,
+                "date":"\(responseDate)",
+                "min_temperature":7,
+                "weather_condition":"snowy"
+            }
+        """
         
-        let weatherData = WeatherDataModel(date: date, weatherCondition: .rainy, maxTemperature: 25, minTemperature: 7)
+        XCTAssertThrowsError(try weatherModel.decodeAPIResponse(responseData: apiResponse)) { error in
+            XCTAssertTrue(error is DecodingError)
+        }
+    
+    }
+    
+    private func getResponseDate() -> String {
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = Date()
+        let responseDate = formatter.string(from: date)
+        return responseDate
+    }
+    
+    private func testDecodeRequest(apiResponse: String, weatherCondition: WeatherCondition) {
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = Date()
+        let decodeData: WeatherDataModel
+        
+        let weatherData = WeatherDataModel(date: date, weatherCondition: weatherCondition, maxTemperature: 25, minTemperature: 7)
         
         do {
             decodeData = try weatherModel.decodeAPIResponse(responseData: apiResponse)
@@ -151,9 +124,7 @@ final class JsonDataTest: XCTestCase {
         }
         
         XCTAssertEqual(decodeData, weatherData)
-
     }
-    
 }
 
 extension WeatherDataModel: Equatable {
