@@ -22,24 +22,21 @@ final class JsonDataTest: XCTestCase {
     func testEncodeAPIRequest() {
         let date = Date()
         let requestDate = formatter.string(from: date)
-        let encodeData: String
-        let encodeDataHyogo: String
-        let apiRequest = "{\"area\":\"tokyo\",\"date\":\"\(requestDate)\"}"
-        let reversedAPIRequest = "{\"date\":\"\(requestDate)\",\"area\":\"tokyo\"}"
-        let apiRequestHyogo = "{\"area\":\"hyogo\",\"date\":\"\(requestDate)\"}"
-        let reversedAPIRequestHyogo = "{\"date\":\"\(requestDate)\",\"area\":\"hyogo\"}"
-        
-        do {
-            encodeData = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "tokyo", date: date))
-            encodeDataHyogo = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "hyogo", date: date))
-        } catch {
-            XCTFail(error.localizedDescription)
-            return
-        }
-        
-        // APIのレスポンスが順不同なのでORで比較
-        XCTAssert(encodeData == apiRequest || encodeData == reversedAPIRequest)
-        XCTAssert(encodeDataHyogo == apiRequestHyogo || encodeDataHyogo == reversedAPIRequestHyogo)
+
+        for area in ["tokyo", "hyogo"] {
+                let apiRequest = "{\"area\":\"\(area)\",\"date\":\"\(requestDate)\"}"
+                let reversedAPIRequest = "{\"date\":\"\(requestDate)\",\"area\":\"\(area)\"}"
+                let encodeData: String
+            
+                do {
+                    encodeData = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: area, date: date))
+                } catch {
+                    XCTFail(error.localizedDescription)
+                    return
+                }
+                // APIのレスポンスが順不同なのでORで比較
+                XCTAssert(encodeData == apiRequest || encodeData == reversedAPIRequest)
+            }
     }
     
     func testDecodeAPIResponseCloudy() {
