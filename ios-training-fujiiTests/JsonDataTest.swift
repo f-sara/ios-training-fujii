@@ -9,68 +9,170 @@ import XCTest
 @testable import ios_training_fujii
 
 final class JsonDataTest: XCTestCase {
-    private var weatherModelMock: WeatherModelMock = WeatherModelMock()
+    
+    private var weatherModel: WeatherDataEncode & WeatherDataDecode = WeatherModelImpl()
+    
+    private var formatter = ISO8601DateFormatter()
     
     override func setUp() {
         super.setUp()
-        weatherModelMock = WeatherModelMock()
     }
      
     
     func testEncodeAPIRequest() {
-        let encodeMock: WeatherDataEncodeMock = WeatherDataEncodeMock()
         let date = Date()
+        let requestDate = formatter.string(from: date)
         let encodeData: String
-        let apiRequest = """
-            {
-                "area": "tokyo",
-                "date": "2020-04-01T12:00:00+09:00"
-            }
-        """
+        let apiRequest = "{\"area\":\"tokyo\",\"date\":\"\(requestDate)\"}"
+        let reversedAPIRequest = "{\"date\":\"\(requestDate)\",\"area\":\"tokyo\"}"
         
-        encodeMock.encodeAPIRequestHandler = { request in
-            XCTAssertEqual(request.area, "tokyo")
-            XCTAssertEqual(request.date, date)
-            return apiRequest
-        }
-
         do {
-            encodeData = try encodeMock.encodeAPIRequest(request: WeatherAPIRequest(area: "tokyo", date: date))
+            encodeData = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "tokyo", date: date))
         } catch {
-            encodeData = ""
+            XCTFail(error.localizedDescription)
+            return
         }
         
-        XCTAssertEqual(encodeData, apiRequest)
+        // APIのレスポンスが順不同なのでORで比較
+        XCTAssert(encodeData == apiRequest || encodeData == reversedAPIRequest)
+    }
+    
+    func testEncodeAPIRequestFail() {
+        let date = Date()
+        let requestDate = formatter.string(from: date)
+        let encodeData: String
+        let apiRequest = "{\"area\":\"tokyo\",\"date\":\"\(requestDate)\"}"
+        
+        do {
+            encodeData = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "3", date: date))
+            print(encodeData)
+        } catch {
+            XCTFail(error.localizedDescription)
+            return
+        }
+        
+        XCTAssertNotEqual(encodeData, apiRequest)
     }
     
     func testDecodeAPIResponse() {
-        let decodeMock: WeatherDataDecodeMock = WeatherDataDecodeMock()
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = Date()
+        let responseDate = formatter.string(from: date)
         let decodeData: WeatherDataModel
         
         let apiResponse = """
             {
                 "max_temperature":25,
-                "date":"\(date)",
+                "date":"\(responseDate)",
                 "min_temperature":7,
                 "weather_condition":"cloudy"
             }
         """
         
-        decodeMock.decodeAPIResponseHandler = { response in
-            XCTAssertEqual(response, apiResponse)
-            return WeatherDataModel(date: date, weatherCondition: .cloudy, maxTemperature: 25, minTemperature: 7)
-        }
+        print(apiResponse)
+        
+        let weatherData = WeatherDataModel(date: date, weatherCondition: .cloudy, maxTemperature: 25, minTemperature: 7)
         
         do {
-            decodeData = try decodeMock.decodeAPIResponse(responseData: apiResponse)
+            decodeData = try weatherModel.decodeAPIResponse(responseData: apiResponse)
         } catch {
-            decodeData = WeatherDataModel(date: Date(timeInterval: 60, since: .now), weatherCondition: .sunny, maxTemperature: 10, minTemperature: 10)
+            XCTFail(error.localizedDescription)
+            return
         }
         
-        XCTAssertEqual(decodeData.date, date)
-        XCTAssertEqual(decodeData.weatherCondition, .cloudy)
-        XCTAssertEqual(decodeData.maxTemperature, 25)
-        XCTAssertEqual(decodeData.minTemperature, 7)
+        XCTAssertEqual(decodeData, weatherData)
+
+    }
+    
+    func testDecodeAPIResponseFail() {
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = Date()
+        let responseDate = formatter.string(from: date)
+        
+        let apiResponse = """
+            {
+                "max_temperature":25,
+                "date":"\(responseDate)",
+                "min_temperature":7,
+                "weather_condition":"snowy"
+            }
+        """
+        
+        print(apiResponse)
+        
+        XCTAssertThrowsError(try weatherModel.decodeAPIResponse(responseData: apiResponse)) { error in
+            XCTAssertTrue(error is DecodingError)
+        }
+    
+    }
+    
+    func testDecodeAPIResponseSunny() {
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = Date()
+        let responseDate = formatter.string(from: date)
+        let decodeData: WeatherDataModel
+        
+        let apiResponse = """
+            {
+                "max_temperature":25,
+                "date":"\(responseDate)",
+                "min_temperature":7,
+                "weather_condition":"sunny"
+            }
+        """
+        
+        print(apiResponse)
+        
+        let weatherData = WeatherDataModel(date: date, weatherCondition: .sunny, maxTemperature: 25, minTemperature: 7)
+        
+        do {
+            decodeData = try weatherModel.decodeAPIResponse(responseData: apiResponse)
+        } catch {
+            XCTFail(error.localizedDescription)
+            return
+        }
+        
+        XCTAssertEqual(decodeData, weatherData)
+
+    }
+    
+    func testDecodeAPIResponseRainy() {
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = Date()
+        let responseDate = formatter.string(from: date)
+        let decodeData: WeatherDataModel
+        
+        let apiResponse = """
+            {
+                "max_temperature":25,
+                "date":"\(responseDate)",
+                "min_temperature":7,
+                "weather_condition":"rainy"
+            }
+        """
+        
+        print(apiResponse)
+        
+        let weatherData = WeatherDataModel(date: date, weatherCondition: .rainy, maxTemperature: 25, minTemperature: 7)
+        
+        do {
+            decodeData = try weatherModel.decodeAPIResponse(responseData: apiResponse)
+        } catch {
+            XCTFail(error.localizedDescription)
+            return
+        }
+        
+        XCTAssertEqual(decodeData, weatherData)
+
+    }
+    
+}
+
+extension WeatherDataModel: Equatable {
+    public static func == (lhs: WeatherDataModel, rhs: WeatherDataModel) -> Bool {
+        return Calendar.current.isDate(lhs.date, inSameDayAs: rhs.date)
+        && lhs.weatherCondition == rhs.weatherCondition
+        && lhs.maxTemperature == rhs.maxTemperature
+        && lhs.minTemperature == rhs.minTemperature
     }
 }

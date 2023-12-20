@@ -24,3 +24,4 @@ struct WeatherDataModel: Decodable {
     var maxTemperature: Int
     var minTemperature: Int
 }
+
