@@ -23,11 +23,15 @@ final class JsonDataTest: XCTestCase {
         let date = Date()
         let requestDate = formatter.string(from: date)
         let encodeData: String
+        let encodeDataHyogo: String
         let apiRequest = "{\"area\":\"tokyo\",\"date\":\"\(requestDate)\"}"
         let reversedAPIRequest = "{\"date\":\"\(requestDate)\",\"area\":\"tokyo\"}"
+        let apiRequestHyogo = "{\"area\":\"hyogo\",\"date\":\"\(requestDate)\"}"
+        let reversedAPIRequestHyogo = "{\"date\":\"\(requestDate)\",\"area\":\"hyogo\"}"
         
         do {
             encodeData = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "tokyo", date: date))
+            encodeDataHyogo = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "hyogo", date: date))
         } catch {
             XCTFail(error.localizedDescription)
             return
@@ -35,23 +39,7 @@ final class JsonDataTest: XCTestCase {
         
         // APIのレスポンスが順不同なのでORで比較
         XCTAssert(encodeData == apiRequest || encodeData == reversedAPIRequest)
-    }
-    
-    func testEncodeAPIRequestFail() {
-        let date = Date()
-        let requestDate = formatter.string(from: date)
-        let encodeData: String
-        let apiRequest = "{\"area\":\"tokyo\",\"date\":\"\(requestDate)\"}"
-        
-        do {
-            encodeData = try weatherModel.encodeAPIRequest(request: WeatherAPIRequest(area: "3", date: date))
-            print(encodeData)
-        } catch {
-            XCTFail(error.localizedDescription)
-            return
-        }
-        
-        XCTAssertNotEqual(encodeData, apiRequest)
+        XCTAssert(encodeDataHyogo == apiRequestHyogo || encodeDataHyogo == reversedAPIRequestHyogo)
     }
     
     func testDecodeAPIResponse() {
