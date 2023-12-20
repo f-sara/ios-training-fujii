@@ -15,6 +15,10 @@ final class ios_training_fujiiTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mainViewController = MainViewController()
+        // testViewWillEnterForegroundを呼ぶためににviewLoadingを初期化
+        mainViewController.weatherImageView.image = UIImage()
+        mainViewController.minTemperatureLabel.text = ""
+        mainViewController.maxTemperatureLabel.text = ""
         weatherModelMock = WeatherModelMock()
     }
     
@@ -25,7 +29,7 @@ final class ios_training_fujiiTests: XCTestCase {
             return WeatherDataModel(date: Date(), weatherCondition: .sunny, maxTemperature: 20, minTemperature: 10)
         }
         
-        mainViewController.reloadWeather(area: "tokyo")
+        mainViewController.reloadWeather()
         
         XCTAssertEqual(mainViewController.weatherImageView.image, UIImage(named: "sunny"))
         XCTAssertEqual(mainViewController.weatherImageView.tintColor, .red)
@@ -38,7 +42,7 @@ final class ios_training_fujiiTests: XCTestCase {
             return WeatherDataModel(date: Date(), weatherCondition: .rainy, maxTemperature: 20, minTemperature: 10)
         }
         
-        mainViewController.reloadWeather(area: "tokyo")
+        mainViewController.reloadWeather()
         
         XCTAssertEqual(mainViewController.weatherImageView.image, UIImage(named: "rainy"))
         XCTAssertEqual(mainViewController.weatherImageView.tintColor, .blue)
@@ -51,7 +55,7 @@ final class ios_training_fujiiTests: XCTestCase {
             return WeatherDataModel(date: Date(), weatherCondition: .cloudy, maxTemperature: 20, minTemperature: 10)
         }
         
-        mainViewController.reloadWeather(area: "tokyo")
+        mainViewController.reloadWeather()
         
         XCTAssertEqual(mainViewController.weatherImageView.image, UIImage(named: "cloudy"))
         XCTAssertEqual(mainViewController.weatherImageView.tintColor, .gray)
@@ -64,10 +68,25 @@ final class ios_training_fujiiTests: XCTestCase {
             return WeatherDataModel(date: Date(), weatherCondition: .sunny, maxTemperature: 20, minTemperature: 10)
         }
         
-        mainViewController.reloadWeather(area: "tokyo")
+        mainViewController.reloadWeather()
         
         XCTAssertEqual(mainViewController.maxTemperatureLabel.text, "20")
         XCTAssertEqual(mainViewController.minTemperatureLabel.text, "10")
+    }
+    
+    func testViewWillEnterForeground() {
+        mainViewController.weatherModel = weatherModelMock
+        weatherModelMock.fetchWeatherAPIHandler = { _ in
+            return WeatherDataModel(date: Date(), weatherCondition: .cloudy, maxTemperature: 20, minTemperature: 10)
+        }
+        
+        
+        NotificationCenter.default.post(name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        XCTAssertEqual(mainViewController.weatherImageView.image, UIImage(named: "cloudy"))
+        XCTAssertEqual(mainViewController.maxTemperatureLabel.text, "20")
+        XCTAssertEqual(mainViewController.minTemperatureLabel.text, "10")
+        
     }
     
 }
