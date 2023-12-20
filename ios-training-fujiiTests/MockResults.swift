@@ -19,31 +19,3 @@ class WeatherModelMock: WeatherModel {
     }
 }
 
-class WeatherDataEncodeMock: WeatherDataEncode {
-    init() { }
-
-    private(set) var encodeAPIRequestCallCount = 0
-    var encodeAPIRequestHandler: ((WeatherAPIRequest) throws -> (String))?
-    func encodeAPIRequest(request: WeatherAPIRequest) throws -> String {
-        encodeAPIRequestCallCount += 1
-        if let encodeAPIRequestHandler = encodeAPIRequestHandler {
-            return try encodeAPIRequestHandler(request)
-        }
-        return ""
-    }
-}
-
-class WeatherDataDecodeMock: WeatherDataDecode {
-    init() { }
-
-    private(set) var decodeAPIResponseCallCount = 0
-    var decodeAPIResponseHandler: ((String) throws -> (WeatherDataModel))?
-    func decodeAPIResponse(responseData: String) throws -> WeatherDataModel {
-        decodeAPIResponseCallCount += 1
-        if let decodeAPIResponseHandler = decodeAPIResponseHandler {
-            return try decodeAPIResponseHandler(responseData)
-        }
-        fatalError("decodeAPIResponseHandler returns can't have a default value thus its handler must be set")
-    }
-}
-

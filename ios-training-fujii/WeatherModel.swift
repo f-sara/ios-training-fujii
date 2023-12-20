@@ -13,12 +13,10 @@ protocol WeatherModel {
     func fetchWeatherAPI(area: String) throws -> WeatherDataModel
 }
 
-/// @mockable
 protocol WeatherDataEncode {
     func encodeAPIRequest(request: WeatherAPIRequest) throws -> String
 }
 
-/// @mockable
 protocol WeatherDataDecode {
     func decodeAPIResponse(responseData: String) throws -> WeatherDataModel
 }
