@@ -88,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD4EC6B62B328B93005B05A6 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		FD4EC6B72B328B9C005B05A6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */,
+				FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		FD62F7F52B26ADBB0001A153 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +145,8 @@
 		FD62F8172B26ADBC0001A153 /* ios-training-fujiiTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */,
-				FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */,
-				FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */,
+				FD4EC6B62B328B93005B05A6 /* Mock */,
+				FD4EC6B72B328B9C005B05A6 /* Tests */,
 			);
 			path = "ios-training-fujiiTests";
 			sourceTree = "<group>";
