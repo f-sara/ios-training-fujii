@@ -26,7 +26,7 @@ class WeatherModelImpl: WeatherModel, WeatherDataEncodable, WeatherDataDecodable
         let date = Date()
         let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
         let requestAPIData = try encodeAPIRequest(request: weatherAPIRequest)
-        let responseAPIData = try YumemiWeather.fetchWeather(requestAPIData)
+        let responseAPIData = try YumemiWeather.syncFetchWeather(requestAPIData)
         let weatherData = try decodeAPIResponse(responseData: responseAPIData)
         return weatherData
     }
