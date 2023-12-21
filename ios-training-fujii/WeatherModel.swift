@@ -13,15 +13,15 @@ protocol WeatherModel {
     func fetchWeatherAPI(area: String) throws -> WeatherDataModel
 }
 
-protocol WeatherDataEncode {
+protocol WeatherDataEncodable {
     func encodeAPIRequest(request: WeatherAPIRequest) throws -> String
 }
 
-protocol WeatherDataDecode {
+protocol WeatherDataDecodable {
     func decodeAPIResponse(responseData: String) throws -> WeatherDataModel
 }
 
-class WeatherModelImpl: WeatherModel, WeatherDataEncode, WeatherDataDecode {
+class WeatherModelImpl: WeatherModel, WeatherDataEncodable, WeatherDataDecodable {
     func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
         let date = Date()
         let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
