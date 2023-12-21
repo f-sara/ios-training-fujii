@@ -9,7 +9,7 @@ import XCTest
 @testable import ios_training_fujii
 
 final class ios_training_fujiiTests: XCTestCase {
-    private let mainViewController: MainViewController = UIStoryboard(name: "mainViewController", bundle: nil).instantiateViewController(identifier: "mainViewController")
+    private let mainViewController: MainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainViewController")
 //    private let mainViewController: MainViewController = MainViewController()
     private var weatherModelMock: WeatherModelMock = WeatherModelMock()
     
