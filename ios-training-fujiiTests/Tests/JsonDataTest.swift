@@ -14,11 +14,6 @@ final class JsonDataTest: XCTestCase {
     
     private var formatter = ISO8601DateFormatter()
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    
     func testEncodeAPIRequest() {
         let date = Date()
         let requestDate = formatter.string(from: date)
