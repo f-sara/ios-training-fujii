@@ -10,15 +10,12 @@ import XCTest
 
 final class ios_training_fujiiTests: XCTestCase {
     private let mainViewController: MainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainViewController")
-//    private let mainViewController: MainViewController = MainViewController()
     private var weatherModelMock: WeatherModelMock = WeatherModelMock()
     
     override func setUp() {
         super.setUp()
-        // testViewWillEnterForegroundを呼ぶためににviewLoadingを初期化
-        mainViewController.weatherImageView.image = UIImage()
-        mainViewController.minTemperatureLabel.text = ""
-        mainViewController.maxTemperatureLabel.text = ""
+
+        mainViewController.loadViewIfNeeded()
         weatherModelMock = WeatherModelMock()
     }
     
