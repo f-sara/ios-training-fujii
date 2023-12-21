@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FD4742352B2ADC4900EE4179 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4742342B2ADC4900EE4179 /* FirstViewController.swift */; };
+		FD4EC6AD2B3035DC005B05A6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */; };
+		FD4EC6B02B3042FA005B05A6 /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */; };
+		FD4EC6B22B3043E3005B05A6 /* JsonDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */; };
 		FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8012B26ADBB0001A153 /* AppDelegate.swift */; };
 		FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */; };
 		FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8052B26ADBB0001A153 /* MainViewController.swift */; };
@@ -40,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		FD4742342B2ADC4900EE4179 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
+		FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataTest.swift; sourceTree = "<group>"; };
 		FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-training-fujii.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD62F8012B26ADBB0001A153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD4EC6B62B328B93005B05A6 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		FD4EC6B72B328B9C005B05A6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */,
+				FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		FD62F7F52B26ADBB0001A153 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +133,7 @@
 				FD62F8052B26ADBB0001A153 /* MainViewController.swift */,
 				FD4742342B2ADC4900EE4179 /* FirstViewController.swift */,
 				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
+				FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */,
 				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
 				FD62F80A2B26ADBB0001A153 /* Assets.xcassets */,
 				FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */,
@@ -121,7 +145,8 @@
 		FD62F8172B26ADBC0001A153 /* ios-training-fujiiTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD62F8182B26ADBC0001A153 /* ios_training_fujiiTests.swift */,
+				FD4EC6B62B328B93005B05A6 /* Mock */,
+				FD4EC6B72B328B9C005B05A6 /* Tests */,
 			);
 			path = "ios-training-fujiiTests";
 			sourceTree = "<group>";
@@ -276,6 +301,7 @@
 				FDC811492B28622100B2BD8B /* WeatherDataModel.swift in Sources */,
 				FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */,
 				FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */,
+				FD4EC6AD2B3035DC005B05A6 /* WeatherModel.swift in Sources */,
 				FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4EC6B02B3042FA005B05A6 /* MockResults.swift in Sources */,
+				FD4EC6B22B3043E3005B05A6 /* JsonDataTest.swift in Sources */,
 				FD62F8192B26ADBC0001A153 /* ios_training_fujiiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
