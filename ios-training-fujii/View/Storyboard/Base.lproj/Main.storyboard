@@ -105,6 +105,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UeZ-ye-4qV"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="7jr-7R-pTb" id="PcI-5V-TYC"/>
                         <outlet property="maxTemperatureLabel" destination="pOP-63-AIu" id="fiV-Xg-keL"/>
                         <outlet property="minTemperatureLabel" destination="RRn-70-BZv" id="Eeu-7P-nKk"/>
                         <outlet property="weatherImageView" destination="Hf4-Wl-i45" id="Hnt-EC-gRp"/>

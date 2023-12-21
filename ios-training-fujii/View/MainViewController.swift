@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
     @IBOutlet @ViewLoading var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading var maxTemperatureLabel: UILabel
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet @ViewLoading private var activityIndicator: UIActivityIndicatorView
 
     
     private var cancellables = Set<AnyCancellable>()
@@ -50,6 +50,7 @@ final class MainViewController: UIViewController {
             activityIndicator.stopAnimating()
         } catch {
             handleWeatherError(error: error)
+            activityIndicator.stopAnimating()
         }
     }
     
