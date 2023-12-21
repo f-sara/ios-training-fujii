@@ -10,7 +10,7 @@ import XCTest
 
 final class JsonDataTest: XCTestCase {
     
-    private var weatherModel: WeatherDataEncode & WeatherDataDecode = WeatherModelImpl()
+    private var weatherModel: WeatherDataEncodable & WeatherDataDecodable = WeatherModelImpl()
     
     private var formatter = ISO8601DateFormatter()
     
