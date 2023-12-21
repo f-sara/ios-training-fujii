@@ -83,6 +83,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7jr-7R-pTb">
+                                <rect key="frame" x="186.66666666666666" y="570.33333333333337" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CGp-eC-iTj"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,7 +97,9 @@
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5OX-Oh-cPS"/>
                             <constraint firstItem="3Y5-0L-URI" firstAttribute="top" secondItem="UAK-ig-2vj" secondAttribute="bottom" constant="80" id="78j-5w-YAT"/>
                             <constraint firstItem="3Y5-0L-URI" firstAttribute="width" secondItem="UAK-ig-2vj" secondAttribute="width" id="YCP-dP-n5k"/>
+                            <constraint firstItem="7jr-7R-pTb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ivY-vk-dSs"/>
                             <constraint firstItem="UAK-ig-2vj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="nOO-ZP-p7k"/>
+                            <constraint firstItem="7jr-7R-pTb" firstAttribute="top" secondItem="UAK-ig-2vj" secondAttribute="bottom" constant="30" id="t5G-AE-hvJ"/>
                             <constraint firstItem="3Y5-0L-URI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vDH-A2-iqZ"/>
                         </constraints>
                     </view>
