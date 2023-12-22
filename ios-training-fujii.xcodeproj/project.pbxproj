@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD4742352B2ADC4900EE4179 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4742342B2ADC4900EE4179 /* FirstViewController.swift */; };
-		FD4EC6AD2B3035DC005B05A6 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */; };
+		FD4EC6AD2B3035DC005B05A6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6AC2B3035DC005B05A6 /* MainPresenter.swift */; };
 		FD4EC6B02B3042FA005B05A6 /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */; };
 		FD4EC6B22B3043E3005B05A6 /* JsonDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */; };
 		FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62F8012B26ADBB0001A153 /* AppDelegate.swift */; };
@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		FD4742342B2ADC4900EE4179 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		FD4EC6AC2B3035DC005B05A6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD4EC6AE2B3042A8005B05A6 /* MockResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
 		FD4EC6B12B3043E3005B05A6 /* JsonDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataTest.swift; sourceTree = "<group>"; };
 		FD62F7FE2B26ADBB0001A153 /* ios-training-fujii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-training-fujii.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +110,7 @@
 			children = (
 				FD4742342B2ADC4900EE4179 /* FirstViewController.swift */,
 				FD62F8052B26ADBB0001A153 /* MainViewController.swift */,
+				FD4EC6AC2B3035DC005B05A6 /* MainPresenter.swift */,
 				FD4EC6C32B34011E005B05A6 /* Storyboard */,
 			);
 			path = View;
@@ -119,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
-				FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 				FDC811492B28622100B2BD8B /* WeatherDataModel.swift in Sources */,
 				FD62F8062B26ADBB0001A153 /* MainViewController.swift in Sources */,
 				FD62F8022B26ADBB0001A153 /* AppDelegate.swift in Sources */,
-				FD4EC6AD2B3035DC005B05A6 /* WeatherModel.swift in Sources */,
+				FD4EC6AD2B3035DC005B05A6 /* MainPresenter.swift in Sources */,
 				FD62F8042B26ADBB0001A153 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,8 +6,13 @@
 //
 
 import UIKit
-import YumemiWeather
 import Combine
+import os
+
+/// @mockable
+protocol MainPresenter: AnyObject {
+    func fetchWeather(area: String)
+}
 
 final class MainViewController: UIViewController {
     
@@ -15,15 +20,22 @@ final class MainViewController: UIViewController {
     @IBOutlet @ViewLoading var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading var maxTemperatureLabel: UILabel
     
-    @IBOutlet @ViewLoading private var activityIndicator: UIActivityIndicatorView
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var cancellables = Set<AnyCancellable>()
     
-    var weatherModel: WeatherModel = WeatherModelImpl()
+    let logger = Logger(subsystem: "com.ios-training-fujii", category: "main")
+    
+    var presenter: MainPresenter?
+    
+    deinit {
+        logger.debug("タブを閉じました")
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter = MainPresenterImpl(output: self)
         
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
             .sink { [weak self] notification in
@@ -33,25 +45,16 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func reloadWeather() {
-        Task {
-            await reloadWeather(area: "tokyo")
-        }
+        reloadWeather(area: "tokyo")
     }
     
     @IBAction func closeView() {
         dismiss(animated: true)
     }
     
-    func reloadWeather(area: String) async {
-        do {
-            activityIndicator.startAnimating()
-            let weatherData = try await weatherModel.fetchWeatherAPI(area: area)
-            setWeatherUI(weatherData: weatherData)
-            activityIndicator.stopAnimating()
-        } catch {
-            handleWeatherError(error: error)
-            activityIndicator.stopAnimating()
-        }
+    func reloadWeather(area: String) {
+        activityIndicator.startAnimating()
+        presenter?.fetchWeather(area: "tokyo")
     }
     
     private func handleWeatherError(error: Error) {
@@ -84,9 +87,21 @@ final class MainViewController: UIViewController {
         minTemperatureLabel.text = mimTemperature
         maxTemperatureLabel.text = maxTemperature
     }
-    
-    
-    
+}
+
+extension MainViewController: MainPresenterOutput {
+    func presenter(_ presenter: MainPresenter, weatherModel: WeatherDataModel) {
+        Task.detached { @MainActor in
+            self.setWeatherUI(weatherData: weatherModel)
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    func presenter(_ presenter: MainPresenter, error: Error) {
+        Task.detached { @MainActor in
+            self.handleWeatherError(error: error)
+            self.activityIndicator.stopAnimating()
+        }
+    }
 }
 
 extension WeatherCondition {
@@ -108,3 +123,5 @@ extension WeatherCondition {
         }
     }
 }
+
+
