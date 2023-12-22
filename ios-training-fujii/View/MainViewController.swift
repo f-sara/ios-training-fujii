@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import os
 
 /// @mockable
 protocol MainPresenter: AnyObject {
@@ -23,7 +24,13 @@ final class MainViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
+    let logger = Logger(subsystem: "com.ios-training-fujii", category: "main")
+    
     var presenter: MainPresenter?
+    
+    deinit {
+        logger.debug("タブを閉じました")
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
