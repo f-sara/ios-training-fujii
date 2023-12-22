@@ -15,6 +15,9 @@ final class MainViewController: UIViewController {
     @IBOutlet @ViewLoading var minTemperatureLabel: UILabel
     @IBOutlet @ViewLoading var maxTemperatureLabel: UILabel
     
+    @IBOutlet @ViewLoading private var activityIndicator: UIActivityIndicatorView
+
+    
     private var cancellables = Set<AnyCancellable>()
     
     var weatherModel: WeatherModel = WeatherModelImpl()
@@ -30,19 +33,24 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func reloadWeather() {
-        reloadWeather(area: "tokyo")
+        Task {
+            await reloadWeather(area: "tokyo")
+        }
     }
     
     @IBAction func closeView() {
         dismiss(animated: true)
     }
     
-    func reloadWeather(area: String) {
+    func reloadWeather(area: String) async {
         do {
-            let weatherData = try weatherModel.fetchWeatherAPI(area: area)
+            activityIndicator.startAnimating()
+            let weatherData = try await weatherModel.fetchWeatherAPI(area: area)
             setWeatherUI(weatherData: weatherData)
+            activityIndicator.stopAnimating()
         } catch {
             handleWeatherError(error: error)
+            activityIndicator.stopAnimating()
         }
     }
     

@@ -105,6 +105,33 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		FD4EC6C12B340109005B05A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD4742342B2ADC4900EE4179 /* FirstViewController.swift */,
+				FD62F8052B26ADBB0001A153 /* MainViewController.swift */,
+				FD4EC6C32B34011E005B05A6 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD4EC6C22B340111005B05A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
+				FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD4EC6C32B34011E005B05A6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		FD62F7F52B26ADBB0001A153 = {
 			isa = PBXGroup;
 			children = (
@@ -130,11 +157,8 @@
 			children = (
 				FD62F8012B26ADBB0001A153 /* AppDelegate.swift */,
 				FD62F8032B26ADBB0001A153 /* SceneDelegate.swift */,
-				FD62F8052B26ADBB0001A153 /* MainViewController.swift */,
-				FD4742342B2ADC4900EE4179 /* FirstViewController.swift */,
-				FDC811482B28622100B2BD8B /* WeatherDataModel.swift */,
-				FD4EC6AC2B3035DC005B05A6 /* WeatherModel.swift */,
-				FD62F8072B26ADBB0001A153 /* Main.storyboard */,
+				FD4EC6C12B340109005B05A6 /* View */,
+				FD4EC6C22B340111005B05A6 /* Model */,
 				FD62F80A2B26ADBB0001A153 /* Assets.xcassets */,
 				FD62F80C2B26ADBB0001A153 /* LaunchScreen.storyboard */,
 				FD62F80F2B26ADBB0001A153 /* Info.plist */,

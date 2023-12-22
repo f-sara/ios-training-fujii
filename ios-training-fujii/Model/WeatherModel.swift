@@ -10,7 +10,7 @@ import YumemiWeather
 
 /// @mockable
 protocol WeatherModel {
-    func fetchWeatherAPI(area: String) throws -> WeatherDataModel
+    func fetchWeatherAPI(area: String) async throws -> WeatherDataModel
 }
 
 protocol WeatherDataEncodable {
@@ -22,11 +22,11 @@ protocol WeatherDataDecodable {
 }
 
 class WeatherModelImpl: WeatherModel, WeatherDataEncodable, WeatherDataDecodable {
-    func fetchWeatherAPI(area: String) throws -> WeatherDataModel {
+    func fetchWeatherAPI(area: String) async throws -> WeatherDataModel {
         let date = Date()
         let weatherAPIRequest = WeatherAPIRequest(area: area, date: date)
         let requestAPIData = try encodeAPIRequest(request: weatherAPIRequest)
-        let responseAPIData = try YumemiWeather.fetchWeather(requestAPIData)
+        let responseAPIData = try YumemiWeather.syncFetchWeather(requestAPIData)
         let weatherData = try decodeAPIResponse(responseData: responseAPIData)
         return weatherData
     }
